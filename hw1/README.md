@@ -75,3 +75,29 @@ tensorboard --logdir data/run1,data/run2,data/run3...
 
 If running on Colab, you will be using the `%tensorboard` [line magic](https://ipython.readthedocs.io/en/stable/interactive/magics.html) to do the same thing; see the [notebook](cs285/scripts/run_hw1.ipynb) for more details.
 
+## cww note
+
+	Lee?:
+	你用pytorch rsample 方法就可以实现 reparameterization trick
+
+	Lee?:
+	但是原理我觉得你还是要了解一下
+
+	伟大的蚊子:
+	式子看的好晕啊
+
+	Lee?:
+	不行就算了  能用就行
+
+I dont know why, when I wanna save videos, I have to `unset LD_PRELOAD`
+
+Task		|meanReturn	|stdReturn 
+--- 		|---		|---
+Ant			|952.9105	|1.5507
+HalfCheetah	|-121.2547	|2.0445
+Hopper		|29.9452	|0.5216
+Humanoid	|226.9267	|20.7603
+Walker2d	|3.8771		|0.2417
+
+rollouts: 5
+

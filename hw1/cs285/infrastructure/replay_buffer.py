@@ -1,4 +1,5 @@
-from cs285.infrastructure.utils import *
+import numpy as np
+from cs285.infrastructure.utils import convert_listofrollouts
 
 
 class ReplayBuffer(object):
@@ -18,7 +19,7 @@ class ReplayBuffer(object):
         self.terminals = None
 
     def __len__(self):
-        if self.obs:
+        if self.obs.any():
             return self.obs.shape[0]
         else:
             return 0
@@ -76,8 +77,15 @@ class ReplayBuffer(object):
         ## HINT 1: use np.random.permutation to sample random indices
         ## HINT 2: return corresponding data points from each array (i.e., not different indices from each array)
         ## HINT 3: look at the sample_recent_data function below
-
-        return TODO, TODO, TODO, TODO, TODO
+        assert batch_size <= len(self)
+        idxs = list(np.random.choice(len(self), batch_size))
+        return (
+            self.obs[idxs],
+            self.acs[idxs],
+            self.rews[idxs],
+            self.next_obs[idxs],
+            self.terminals[idxs],
+        )
 
     def sample_recent_data(self, batch_size=1):
         return (
